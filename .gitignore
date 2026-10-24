@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+nginx/certs/
+node_modules/
+**/node_modules/
+*.log
+*.pem
+*.key
+.DS_Store
+.vscode/
+
+docker-compose.yml.bak

@@ -1,0 +1,13 @@
+{
+  "name": "viettravel-booking-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website dat tour du lich / De 20",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "express": "4.21.2",
+    "express-rate-limit": "7.5.0",
+    "pg": "8.13.1",
+    "prom-client": "15.1.3"
+  }
+}
