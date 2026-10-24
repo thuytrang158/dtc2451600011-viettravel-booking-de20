@@ -1,0 +1,23 @@
+{
+  "id": null,
+  "uid": "viettravel-monitoring",
+  "title": "VietTravel | Web - Nginx - PostgreSQL - Containers",
+  "tags": ["booking", "docker", "postgres", "nginx"],
+  "schemaVersion": 39,
+  "version": 1,
+  "timezone": "browser",
+  "refresh": "15s",
+  "time": { "from": "now-30m", "to": "now" },
+  "templating": { "list": [] },
+  "annotations": { "list": [] },
+  "panels": [
+    { "id": 1, "title": "Targets đang hoạt động", "type": "stat", "gridPos": {"h": 5, "w": 6, "x": 0, "y": 0}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"expr":"sum(up)","refId":"A"}], "fieldConfig": {"defaults":{"unit":"short"},"overrides":[]} },
+    { "id": 2, "title": "PostgreSQL UP", "type": "stat", "gridPos": {"h": 5, "w": 6, "x": 6, "y": 0}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"expr":"pg_up","refId":"A"}], "fieldConfig":{"defaults":{"unit":"short"},"overrides":[]} },
+    { "id": 3, "title": "Nginx requests tổng", "type": "stat", "gridPos": {"h": 5, "w": 6, "x": 12, "y": 0}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"expr":"nginx_http_requests_total","refId":"A"}], "fieldConfig":{"defaults":{"unit":"short"},"overrides":[]} },
+    { "id": 4, "title": "Kết nối PostgreSQL", "type": "stat", "gridPos": {"h": 5, "w": 6, "x": 18, "y": 0}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"expr":"sum(pg_stat_activity_count)","refId":"A"}], "fieldConfig":{"defaults":{"unit":"short"},"overrides":[]} },
+    { "id": 5, "title": "Tốc độ yêu cầu HTTP trên Node.js", "type": "timeseries", "gridPos": {"h": 9, "w": 12, "x": 0, "y": 5}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"expr":"sum(rate(http_requests_total[2m]))","legendFormat":"requests/s","refId":"A"}], "fieldConfig":{"defaults":{"unit":"reqps"},"overrides":[]} },
+    { "id": 6, "title": "Nginx connections", "type": "timeseries", "gridPos": {"h": 9, "w": 12, "x": 12, "y": 5}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"expr":"nginx_connections_active","legendFormat":"active","refId":"A"}], "fieldConfig":{"defaults":{"unit":"short"},"overrides":[]} },
+    { "id": 7, "title": "Container CPU (cores)", "type": "timeseries", "gridPos": {"h": 9, "w": 12, "x": 0, "y": 14}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"expr":"sum by (name) (rate(container_cpu_usage_seconds_total{image!=\"\",name!=\"\"}[2m]))","legendFormat":"{{name}}","refId":"A"}], "fieldConfig":{"defaults":{"unit":"short"},"overrides":[]} },
+    { "id": 8, "title": "Container RAM", "type": "timeseries", "gridPos": {"h": 9, "w": 12, "x": 12, "y": 14}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"expr":"sum by (name) (container_memory_working_set_bytes{image!=\"\",name!=\"\"})","legendFormat":"{{name}}","refId":"A"}], "fieldConfig":{"defaults":{"unit":"bytes"},"overrides":[]} }
+  ]
+}

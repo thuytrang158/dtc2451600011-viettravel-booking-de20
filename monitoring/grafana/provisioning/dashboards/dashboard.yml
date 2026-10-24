@@ -1,0 +1,10 @@
+apiVersion: 1
+providers:
+  - name: 'VietTravel Monitoring'
+    orgId: 1
+    folder: 'VietTravel'
+    type: file
+    disableDeletion: true
+    updateIntervalSeconds: 30
+    options:
+      path: /var/lib/grafana/dashboards
