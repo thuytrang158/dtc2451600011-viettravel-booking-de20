@@ -56,7 +56,7 @@ Giả sử IP máy ảo là `192.168.126.128`:
 | Quản trị tour | https://192.168.126.128:8443/admin.html | `ADMIN_USER` / `ADMIN_PASSWORD` trong `.env` |
 | pgAdmin | http://192.168.126.128:5050 | `PGADMIN_EMAIL` / `PGADMIN_PASSWORD` trong `.env` |
 | Grafana | http://192.168.126.128:3005 | `GRAFANA_USER` / `GRAFANA_PASSWORD` trong `.env` |
-| Prometheus | http://182.168.126.128:9095 (trên Ubuntu, hoặc SSH tunnel) | không có mật khẩu, cố ý chỉ bind localhost |
+| Prometheus | http://192.168.126.128:9095 (trên Ubuntu, hoặc SSH tunnel) | không có mật khẩu, cố ý chỉ bind localhost |
 
 Website sử dụng chứng chỉ tự ký nên trình duyệt cảnh báo. Trong bài lab, có thể chọn Advanced → Proceed. Không làm điều này với trang công cộng không tin cậy.
 
